@@ -1,0 +1,102 @@
+# 此配置文件包含
+# 1. 项目相关的配置参数
+# 2. 测试人员在现场可能用到的参数
+# 此配置的优先级高于"代码中配置的默认参数",低于"命令行参数"
+
+# 取消注释(删除行首的#),以生效
+# Uncomment to enable configuration
+
+# 初次使用，请至少填写以下参数，否则无法运行！
+# - agent.supported_models
+# - pallet.length
+# - pallet.width
+
+# 车辆做VD的距离（相机到托盘前边沿的距离：单位是米）
+dist_vd_camera_to_pallet_front = 1.7
+
+# 充满电时，继续充电一段时间，以校准电量（秒）
+battery_calibration_duration = 360
+
+[general]
+vna_mode = false
+
+
+[agent]
+# 支持的车型。如["pj3g_15", "vt1b1_15"]（目前请不要添加超过两种车型）
+supported_models = ["cf3k1_18"]
+# 预期的单车前进(车头朝前)速度。RSS使用该信息进行路径规划
+speed_forward = 1
+# 预期的单车后退(车叉朝前)速度。RSS使用该信息进行路径规划
+speed_backward = 0.4
+# 预期单车的旋转时间。(90°原地旋转)
+right_angle_turn_duration = 5
+
+# 各动作的额外用时。RSS使用该信息进行路径规划
+[agent.action_duration]
+# 取货
+ pick = 20
+# 放货
+ drop = 12
+# 充电
+# charge = 15
+# 待机
+# standby = 8
+
+
+[[pallet]]
+# 托盘（载货）的'长度'
+length = 1.2
+# 托盘（载货）的'宽度' 叉车从宽度方向入叉
+
+width = 0.8
+
+[[pallet]]
+length = 2.2
+width = 1.2
+
+
+[planner]
+# max_missions_to_plan_per_agent = 2
+
+
+[debug]
+# 任务间等待时间
+# idle_time_btw_tasks = 5.0
+
+# 关闭UI
+# disable_ui = true
+
+# 关闭自动充电
+ disable_auto_charge = true
+
+
+# 电源策略
+# 电量 <= 20%
+[[power_plan]]
+# 电量小于{battery_lower_than}，触发该策略
+battery_lower_than = 20
+# need charge的车辆才会自动充电
+need_charge = true
+# must charge的车辆不会被分配任何新的任务
+must_charge = true
+# 空闲一定时间(秒)后才会自动充电
+idle_seconds_before_charge = 0
+# 一旦开始，充电到40%，不被任务打断
+charge_until = 40
+
+# 电量 <= 30%
+[[power_plan]]
+battery_lower_than = 30
+need_charge = true
+must_charge = true
+idle_seconds_before_charge = 0
+charge_until = 100
+
+# 电量 <= 90%
+[[power_plan]]
+battery_lower_than = 90
+need_charge = true
+must_charge = false
+idle_seconds_before_charge = 600
+
+
