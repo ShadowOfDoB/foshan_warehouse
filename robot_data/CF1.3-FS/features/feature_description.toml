@@ -1,0 +1,47 @@
+[model]
+agent_model_detail = "cf3k1_18"
+FORK_TYPE = "FORK_ABSOLUTE"
+USE_EXT_FORK = true
+PUSH_TRIGGER_EXIST = false
+perc_barcodes_output = true  #use pose_result with msg:PalletTrackingResultWithBarcodeArray
+
+fork_lon_adjust = true
+fork_width_adjust = true
+fork_center_adjust = true
+gantry_pitch_adjust = true
+
+# The offset of fork-height from perception
+perc_fork_height_offset = 0.007
+
+# The offset of fork-center from perception and fork-calibration
+perc_fork_center_offset = 0.07
+
+fork_tine_width = 0.12
+
+# The limit of fork-lon 
+fork_lon_limit = 0.8
+
+perc_cam_fork_height = 0.5
+perc_lidar_fork_height = 0.5
+
+pick_drop_length_filter_factor = 1.2
+pick_drop_width_filter_factor = 1.2
+pick_drop_height_filter_factor = 2.0
+
+[[camera]]
+name = "back_camera"
+id = 1
+path = "camera_cmd"
+frame_id = "camera_base"
+
+[[camera]]
+name = "left_camera"
+id = 3
+path = "left_camera2_cmd"
+frame_id = "left_camera_base"
+
+[[camera]]  
+name = "right_camera"
+id = 4
+path = "right_camera2_cmd"
+frame_id = "right_camera_base"

@@ -1,0 +1,32 @@
+topics:
+  - /livox/lidar
+  - /livox/imu
+  - /livox2/lidar 
+  - /livox_filtered
+  - /pico_zense/aligned_depth_to_colour/camera_info
+  - /pico_zense/aligned_depth_to_colour/image_raw
+    #- /pico_zense/colour/camera_info
+    #- /pico_zense/colour/image_compressed
+
+  - /hal/filtered_fork_tip_tof_report
+  - /map_final_path
+  - /pallet_detection_switch
+  - /mob_pallet_tracking/pose_result_rough
+  - /mob_pallet_tracking/pose_result
+  - /barcode_refined
+  - /barcodes_result
+  - /hik_caminfo
+  - /mob_yolo_detection/out_image 
+  - /raw_barcode_poses
+  - /raw_sheet_poses
+  - /raw_barcode_contents
+  - /proximity_distance
+
+  - /cargo_detection_request
+  - /cargo_detection_result
+  - /cargo_detection_marker  
+  - /boundingbox_filter_request  
+  - /fork_pallet_detection_request  
+  - /fork_pallet_detection_result  
+  
+

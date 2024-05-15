@@ -1,0 +1,39 @@
+[[camera]]
+name = "back_camera"
+id = 1
+path = "camera_cmd"
+frame_id = "camera_base"
+
+[model]
+FORK_TYPE = "FORK_ABSOLUTE"
+USE_EXT_FORK = true
+PUSH_TRIGGER_EXIST = false
+agent_model_detail = "CF1.3"
+
+# The car can adjust the gantry-lon distance of the fork/汽车可以调节货叉的龙门架和距离
+gantry_lon_adjust = false
+
+# The car can adjust the lon distance of the fork/汽车可以调节叉子的纵向距离
+fork_lon_adjust = false
+
+# The car can adjust the width distance of the fork/汽车可以调节货叉的宽度距离
+fork_width_adjust = true
+
+# The offset of fork-height from perception/叉子高度与感知的偏移
+fork_height_offset = 0.0
+
+# The offset of fork-center from perception and fork-calibration/叉子中心与感知的偏移和叉子校准
+fork_center_offset = -0.01
+
+# The offset of fork-lon because control/fork-lon的偏移是因为控制
+fork_lon_offset = 0.0
+
+# The limit of fork width/货叉宽度的限制
+fork_width_limit = 0.3
+
+# The limit of fork-lon /叉隆的极限
+fork_lon_limit = 0.8
+
+pallet_length_filter_factor = 3.5
+pallet_width_filter_factor = 3.5
+pallet_height_filter_factor = 1.5

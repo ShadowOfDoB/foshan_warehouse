@@ -1,0 +1,40 @@
+[model]
+FORK_TYPE = "FORK_ABSOLUTE"
+USE_EXT_FORK = true
+PUSH_TRIGGER_EXIST = false
+agent_model_detail = "CF1.3"
+
+# The car can adjust the gantry-lon distance of the fork
+gantry_lon_adjust = false
+
+# The car can adjust the lon distance of the fork
+fork_lon_adjust = true
+
+# The car can adjust the width distance of the fork
+fork_width_adjust = true
+
+# The offset of fork-height from perception
+fork_height_offset = 0.0
+
+# The offset of fork-center from perception and fork-calibration
+fork_center_offset = -0.01
+
+# The offset of fork-lon because control
+fork_lon_offset = 0.0
+
+# The limit of fork width
+fork_width_limit = 0.3
+
+# The limit of fork-lon 
+fork_lon_limit = 0.8
+
+pallet_length_filter_factor = 3.5
+pallet_width_filter_factor = 3.5
+pallet_height_filter_factor = 1.5
+
+[[camera]]
+name = "back_camera"
+id = 1
+path = "camera_cmd"
+frame_id = "camera_base"
+

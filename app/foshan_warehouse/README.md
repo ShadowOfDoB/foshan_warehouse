@@ -1,0 +1,1 @@
+See [Wiki](https://gitlab.dorabot.com/mobility/cq_app/wikis/home).

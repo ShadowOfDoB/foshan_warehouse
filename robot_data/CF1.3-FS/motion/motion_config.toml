@@ -1,0 +1,99 @@
+[motion]
+L = 1.475
+La = 0.0
+LATERAL_ACC = 0.25
+DRIVE_TYPE = 3
+DELAY = {VX = 0.15, VW = 0.15, PV = 0.15, PS = 0.1, LOCALIZATION = 0.10}
+DEADZONE = {VX = 0.0001, VW = 0.006, PV = 0.05, PS = 0.00002}
+STEERING_DRIVE_ANGLE_OFFSET = {SIGN = 1.0, USE_DYNAMIC_STEERING_DRIVE_ANGLE = true, FORWARD = 0.00, BACKWARD = 1.5}
+gForkHeightControlFinishLimitMeters = 0.007
+ENABLE_EZ_LOCAL_PLANNER = false
+
+[motion_constraint]
+EXTREME = [ 1.5, 0.5, 3.5, 10.0, 0.5, 1.0, 1.2, 10.0,]
+FAST = [ 1.5, 0.5, 2.0, 5.0, 0.5, 0.6, 1.5, 5.0,]
+REGULAR = [ 1.0, 0.9, 1.5, 4.0, 0.5, 1.0, 1.5, 4.0,]
+SMOOTH = [ 0.9, 0.6, 2.5, 5.0, 0.5, 0.8, 1.0, 5.0,]
+SLOW = [ 0.8, 0.45, 2.5, 5.0, 0.5, 0.4, 0.8, 5.0,]
+PUSH = [ 0.1, 0.1, 2.5, 5.0, 0.5, 0.4, 0.8, 5.0,]
+
+[local_planner]
+FRONT_THRESHOLD = 0.15
+REAR_THRESHOLD = 0.05
+MINIMUM_THRESHOLD = 0.15
+HALF_WIDTH_THRESHOLD = 0.02
+IN_PLACE_ROTATION_THRESHOLD = 0.15
+Obstacle_Stop_Dist = [1.0, 2.0]
+Obstacle_Stop_Vel_Limit_Factor = [0.3, 1.0]
+
+[TOF]
+TOF_type = "PALLET_DETECT"
+TOF_FIELD_OF_VIEW = 0.01745
+TOF_MIN_RANGE = 0.10
+TOF_MAX_RANGE = 1.5
+TOF_INTENSITY_LOWER_BOUND = 2000.0
+TOF_INTENSITY_UPPER_BOUND = 65535.0
+
+[camera]
+OBS_type = "OBS_DISABLE"
+#OBS_type = "OBS_ENABLE"
+
+[move_controller]
+MC_distErrorCost = 5.0
+MC_headingErrorCost = 5.0
+MC_linearAccelerationCost = 0.1
+MC_angularAccelerationCost = 0.1
+MC_linearJerkCost = 0.01
+MC_angularJerkCost = 0.01
+MC_bangbangMaxLonSpeedFactor = 1.0  #should > 2.0
+
+[skidding]
+skidding_stop_dist = 0.1
+skidding_stop_angle_rad = 0.3
+
+[speed_controller]
+is_calib = false
+enable = true
+
+td_r = 15
+
+# gas pd controller params
+gas_pd_magnitude = 100
+gas_fb_pd_vel_list = [ 0.1, 0.2, 0.6, 0.9, 1.5,]
+gas_fb_p_list = [ 0.4, 0.4, 0.8, 0.05, 0.05,]
+gas_fb_d_list = [ 0.2, 0.2, 0.1, 0.05, 0.05,]
+gas_fb_i = 0.1
+
+# gas params
+gas_value_smooth = 25
+gas_value_max_vel_list = [0.05, 0.12, 0.15]
+gas_value_max_list = [22, 30, 50]
+gas_factor_vel_list = [0.0, 0.1, 0.2]
+gas_factor_list = [1.3, 1.3, 1.0]
+gas_list = [ 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60,]
+speed_list = [ 0.0, 0.05, 0.11, 0.2, 0.33, 0.5, 0.67, 0.84, 1.01, 1.18, 1.35, 1.52,]
+
+brake_enable = true
+brake_factor = 1.0
+brake_acc_threshold = 0.1
+brake_value_smooth = 40
+brake_value_max = 50
+brake_delay = 0.3
+brake_acc_list = [0.0, 0.1, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 2.4, 2.6, 2.8, 3.0, 3.2, 3.4, 3.6]
+brake_value_list = [0, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
+
+[angle_controller]
+td_r = 15
+
+angle_value_max = 60.0
+angle_pd_magnitude = 100
+angle_pd_vel_list = [0.0, 0.6, 0.9, 1.2, 1.5,]
+angle_p_list = [2.0, 2.0, 1.5, 1.0, 0.8,]
+angle_d_list = [0.6, 0.6, 0.6, 0.6, 0.6]
+
+[vd]
+phase1_offset_dis = 0.15
+
+[push]
+push_gas = 23
+

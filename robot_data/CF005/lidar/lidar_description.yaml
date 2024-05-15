@@ -1,0 +1,57 @@
+---
+lidar:
+
+- name: navigation_lidar
+  type: navigation
+  model: wr_scan_360
+  ip: 192.168.0.10
+  link_frame: base_link
+  link_pose:
+    xyz: [0.620, 0.030, 2.375]
+    rpy: [0.000, 0.000, 0.03]
+
+- name: left_safety_lidar
+  type: safety
+  model: wr_scan_360
+  ip: 192.168.0.11
+  link_frame: base_link
+  link_pose:
+    xyz: [1.520, 0.630, 0.100]
+    rpy: [3.142, 0.000, 0.795]
+    
+- name: right_safety_lidar
+  type: safety
+  model: wr_scan_360
+  ip: 192.168.0.12
+  link_frame: base_link
+  link_pose:
+    xyz: [1.520, -0.55, 0.100]
+    rpy: [3.142, -0.000, -0.805]
+
+    #- name: back_safety_lidar
+    #  type: safety
+    #  model: ws_20_pcd
+    #  ip: 192.168.0.13
+    #  link_frame: fork_real
+    #  link_pose:
+    #   xyz: [0.26, 0.17, -0.05]
+    #  rpy: [3.1415927, 0.0, 3.1415927]
+
+ # - name: back_3d_lidar
+ #   type: 3D
+ #   model: livox_mid360
+ #   ip: 192.168.0.21
+ #   link_frame: fork_real
+ #   link_pose:
+ #      xyz: [0.05, -0.22, 0.81]
+ #      rpy: [3.1415, 0.0, 3.1415]
+
+- name: fork_below_3d_lidar
+  type: 3D
+  model: livox_mid360
+  ip: 192.168.0.22
+  link_frame: fork_real
+  link_pose:
+     xyz: [0.17, 0.16, -0.18]
+     rpy: [0.02, 0.136, 3.14]
+     

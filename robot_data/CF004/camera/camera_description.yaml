@@ -1,0 +1,14 @@
+camera:
+
+- name: back_camera
+  link_frame: fork_real
+  model: percipio_t571
+  control_cmd: /camera_cmd
+  other_params:
+    rgb_auto_exposure: false
+    rgb_exposure_time: 1080
+  link_pose:
+    # rpy: [3.1415, 0.266, -3.16]
+    # xyz: [0.04, -0.02, 0.72]
+    rpy: [3.1415, 0.266, -3.1415]
+    xyz: [0.04, 0.04, 0.72]

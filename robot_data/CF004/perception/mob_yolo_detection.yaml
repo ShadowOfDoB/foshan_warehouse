@@ -1,0 +1,9 @@
+model_type: yolov5
+model_path: shicf_new
+camera_name: back_camera
+camera_info: depth/camera_info
+rgb_image: rgb/image_raw
+depth_image: depth/image_raw
+rgb_bgr_mode: 1
+rotate_180: 1
+out_image_mode: 1

@@ -1,0 +1,152 @@
+[fork_model]
+FORK_TYPE = "FORK_ABSOLUTE"
+WIDTH_SYNCHRONIZE_MOVE = true
+FORK_LON_OPENLOOP_SPEED = 0.06  #fork-lon control speed,it actual speed depends on [fork_lon.control_up_limit.max_control] below.
+USE_EXT_FORK = true
+SINGLE_FORK_WIDTH = 0.12
+
+[fork_controller]
+target_td_r = 0.5
+target_td_h_factor = 1.0
+output_td_r = 5.0
+output_td_h_factor = 5.0
+prediction_output_td_r = 1.5
+prediction_output_td_h_factor = 5.0
+extreme = 1.2
+fast = 1.2 
+regular = 1.0
+slow = 0.95
+
+[fork_up]
+controller_selection = 1
+target_bound = {lower_bound = 0.0, upper_bound = 2.95}
+control_up_limit = {min_control = 40.0, max_control = 65.0, max_control_increament_factor = 0.02}
+control_down_limit = {initial_threshold = -0.1, small_threshold = 0.03, small_control = 25.0, large_threshold = 0.04, large_control = 30.0, max_control = 60.0}
+split_up = {kp = 3.12, b = 0.30, slow_zone = 0.2}
+split_down = {kp = 3.12, b = 0.40, slow_zone = 0.2}
+finish_threshold = 0.003
+almost_unmoved_dist = 0.0001
+almost_unmoved_time = 2.0
+FORK_FINISH_COUNTER_FACTOR = 20
+zero_physical_limit = true
+vertical_check = false
+md = 0.48
+mk = 0.005
+ma = 0.0
+pole = 0.3
+i = 0.0
+d = 0.0
+alpha_p = 0.5
+delta_p = 0.15
+  
+[fork_down]
+controller_selection = 1
+target_bound = {lower_bound = 0.0, upper_bound = 2.95}
+control_up_limit = {min_control = 40.0, max_control = 65.0, max_control_increament_factor = 0.02}
+control_down_limit = {initial_threshold = -0.1, small_threshold = 0.08, small_control = 20.0, large_threshold = 0.1, large_control = 25.0, max_control = 60.0}
+split_up = {kp = 3.12, b = 0.30, slow_zone = 0.2}
+split_down = {kp = 3.12, b = 0.40, slow_zone = 0.2}
+finish_threshold = 0.003
+almost_unmoved_dist = 0.0001
+almost_unmoved_time = 2.0
+FORK_FINISH_COUNTER_FACTOR = 20
+zero_physical_limit = true
+vertical_check = false
+md = 0.48
+mk = -0.00303191
+ma = 0.0
+pole = 0.85
+i = 0.0
+d = 0.0
+alpha_p = 0.5
+delta_p = 0.15
+
+[fork_lon]
+controller_selection = 2
+target_bound = {lower_bound = -0.8, upper_bound = 0.8}
+control_up_limit = {min_control = 20.0, max_control = 60.0, max_control_increament_factor = 0.02}
+control_down_limit = {initial_threshold = -0.1, small_threshold = 0.02, small_control = 80.0, large_threshold = 0.04, large_control = 60.0, max_control = 73.0}
+split_up = {kp = 3.12, b = 0.30, slow_zone = 0.2}
+split_down = {kp = 3.12, b = 0.40, slow_zone = 0.2}
+finish_threshold = 0.007
+almost_unmoved_dist = 0.0001
+almost_unmoved_time = 10.0
+zero_physical_limit = false
+vertical_check = false
+md = 0.48
+mk = 0.00303191
+ma = 0.0
+pole = 0.3
+i = 0.0
+d = 0.0
+alpha_p = 0.5
+delta_p = 0.15
+
+[fork_width]
+controller_selection = 2
+target_bound = {lower_bound = 0.165, upper_bound = 0.89}
+control_up_limit = {min_control = 60.0, max_control = 80.0, max_control_increament_factor = 1.0}
+control_down_limit = {initial_threshold = -0.1, small_threshold = 0.02, small_control = 20.0, large_threshold = 0.04, large_control = 25.0, max_control = 60.0}
+control_factor = {neg = 1.0, pos = 1.0}
+split_up = {kp = 1.0, b = 0.15, slow_zone = 0.3}
+split_down = {kp = 1.0, b = 0.15, slow_zone = 0.3}
+finish_threshold = 0.01
+FORK_FINISH_COUNTER_FACTOR = 5
+almost_unmoved_dist = 0.0001
+almost_unmoved_time = 10.0
+zero_physical_limit = false
+vertical_check = false
+md = 0.48
+mk = 0.00303191
+ma = 0.0
+pole = 0.3
+i = 0.0
+d = 0.0
+alpha_p = 0.5
+delta_p = 0.15
+
+[fork_center]
+controller_selection = 2
+target_bound = {lower_bound = 0.165, upper_bound = 0.89}
+control_up_limit = {min_control = 50.0, max_control = 80.0, max_control_increament_factor = 1.0}
+control_down_limit = {initial_threshold = -0.1, small_threshold = 0.02, small_control = 80.0, large_threshold = 0.04, large_control = 60.0, max_control = 100.0}
+control_factor = {neg = 1.2, pos = 1.1}
+split_up = {kp = 1.0, b = 0.30, slow_zone = 0.2}
+split_down = {kp = 1.0, b = 0.30, slow_zone = 0.2}
+finish_threshold = 0.007
+FORK_FINISH_COUNTER_FACTOR = 5
+almost_unmoved_dist = 0.0001
+almost_unmoved_time = 10.0
+zero_physical_limit = false
+vertical_check = false
+md = 0.36
+mk = 0.0012141
+ma = 0.0
+pole = 0.075
+i = 0.0
+d = 0.0
+alpha_p = 0.5
+delta_p = 0.15
+
+[gantry_pitch]
+controller_selection = 2
+target_bound = {lower_bound = -0.09, upper_bound = 0.1}
+control_up_limit = {min_control = 15.0, max_control = 30.0, max_control_increament_factor = 1.0}
+control_down_limit = {initial_threshold = -0.1, small_threshold = 0.02, small_control = 80.0, large_threshold = 0.04, large_control = 60.0, max_control = 100.0}
+split_up = {kp = 1.0, b = 0.30, slow_zone = 0.05}
+split_down = {kp = 1.0, b = 0.40, slow_zone = 0.05}
+control_factor = {neg = 0.55, pos = 1.0}
+finish_threshold = 0.0013
+almost_unmoved_dist = 0.0001
+almost_unmoved_time = 2.0
+FORK_FINISH_COUNTER_FACTOR = 20
+zero_physical_limit = true
+vertical_check = false
+md = 0.48
+mk = 0.00303191
+ma = 0.0
+pole = 0.3
+i = 0.0
+d = 0.0
+alpha_p = 0.5
+delta_p = 0.15

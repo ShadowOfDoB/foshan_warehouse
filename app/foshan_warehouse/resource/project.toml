@@ -1,0 +1,154 @@
+# 此配置文件包含
+# 1. 项目相关的配置参数
+# 2. 测试人员在现场可能用到的参数
+# 此配置的优先级高于"代码中配置的默认参数",低于"命令行参数"
+
+# 取消注释(删除行首的#),以生效
+# Uncomment to enable configuration
+
+[fork]
+enable_gantry_pitch = true
+
+[stacker]
+# 货叉自由高度 (货叉可自由进出托盘的高度）
+fork_drop_height = 0.02
+
+# 货叉载货高度 (货叉托起托盘的高度)
+fork_pick_height = 0.1
+
+# pick后, 托盘前边沿距离fork real的距离
+fork_pick_loaded_gap = 0.3
+
+# pick前, 托盘前边沿距离fork tip的距离
+fork_pick_pre_gap = 0.3
+
+# 货叉的空载navigation高度 (通常为0)
+fork_unloaded_nav_height = 0.4
+fork_pallet_on_ground_offset = 0.4
+
+# 货叉的载货navigation高度
+fork_loaded_nav_height = 0.4
+
+# 货叉在 drop 之前相比目标高度高出的高度
+fork_pre_drop_offset = 0.2
+
+[pallet]
+height = 5.0
+# 托盘（载货）的'长度'
+length = 1.2
+# 托盘（载货）的'宽度' 叉车从宽度方向入叉
+width = 1.0
+
+#drop时，传感器输出的货物在叉子上的绝对距离偏移值
+pallet_detect_distance_offset = 0.0
+#drop时，满叉的货物,距离fork real的绝对距离偏移值
+pallet_fullfork_distance_offset = 0.0
+
+[vd]
+vd_phase1_offset = 0.5
+vd_phase2_offset = 0.35
+vd_lateral_tolerance = 0.04
+vd_phase1_converge_dist = 0.8
+
+[push]
+# push dist
+push_dist = 0.4
+push_pallet_move_tolerance = 0.2
+
+#pick之后，是不是要push退出来
+push_back_after_pick = false
+
+[camera]
+# Default camera id
+top_camera_id = 0
+
+# camera2 = 1
+
+[feature]
+active_fork_monitor = true
+fork_monitor_check_dist = 1.0
+#skip_pick_push = true
+
+[stock_detection]
+# 是否开启库位检测	
+stock_detection_enable = false
+# 检测库位障碍物参考高度
+stock_detection_ref_pallet_height = 0.09
+stock_detection_offset_height = 0.0
+
+[free_pick]
+free_pick_use_lidar_detect = true
+# free pick [cargo_detect] 使用的传感器.  false[default]:camera    true:lidar
+
+free_pick_angle_error = 0.03
+# free pick 托盘和叉车允许的相对角度误差
+
+free_pick_max_angle_error = 0.2
+# free pick 托盘和叉车允许的最大相对角度误差
+
+free_pick_force_perception_drop = 2
+# free pick 场景中使用感知判断车上托盘的位置，进行drop
+# 0: 不使用传感器感知托盘位置
+# 1: 使用上面的3d激光感知托盘位置距离fork_real的位置
+# 2: 使用下面的3d激光感知托盘位置相对于fork_real_move的pose位置
+
+free_pict_angle_error_retry = true
+#free pick 角度误差不满足时，是不是retry, ref: free_pick_angle_error
+
+free_pick_has_slope = false
+# free pick 场景中是不是有斜坡(佛山宜家没有，上海宜家有)
+
+free_pick_predefined_path_offset = [-0.8, -0.5, 0 , 0.5, 0.8]
+# free pick 路线到 free_pick_area_center 的偏移，如上面定义的就是三条路
+
+free_pick_container_front_pose = [-2.40, 10.94, -1.56]
+# free pick 集装箱门区参考线
+
+free_pick_slope_pose = [-2.40, 12.87, -1.56]
+# free pick 中判断车体是不是正在斜坡上的参考线
+
+free_pick_check_before_slope_dis = 1.5
+# free pick 中根据距集装箱口的距离,判断是不是一二排货物
+
+free_pick_change_path_dis = 3.0
+#free pick 切换路线时，保证车辆在大库位前能摆正的距离
+
+free_pick_on_slope_push_dis = 0.07
+# free pick 中根据这个值来决定push后叉尖距托盘距离
+
+free_pick_move_to_pallet_adjust_dist = 4.0
+# free pick 的第一部分 cargo_detect 检测到托盘后，车辆姿态调整位置距离托盘前的距离
+
+free_pick_fork_navigation_height = 0.4
+# After pick process, the navigation fork height
+
+free_pick_fork_below_pallet_dis = 0.15
+# In pick process, the distance of fork should be below to the pallet 
+
+free_pick_below_pallet_gantry = -0.01
+# In pick process, make gantry Negative when pick pallet in ground 
+
+[cargo_detect]
+# During the dection of sheet pose of cargo, the stop distance between the car and cargo
+cargo_combined_scan_target_dist = 12.0
+
+[fork_restriction]
+fork_restriction_area_enlarge_rate = 1.5
+
+[retry_times]
+push_task_retry_times = 0
+
+[wait_time]
+fork_wait_time_ms = 30000
+
+navigation_only = false
+
+[debug]
+#rabbitmq_account = "guest"
+#rabbitmq_password = "guest"
+
+rabbitmq_account = "dorabot"
+rabbitmq_password = "123456"
+
+
+

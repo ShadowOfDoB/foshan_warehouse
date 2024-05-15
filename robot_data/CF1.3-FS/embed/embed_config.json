@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "name": "DRAW_WIRE_CALIBRATION",
+      "value": {
+        "enums": [
+          {
+            "val": 1,
+            "name": "height",
+            "des": "The fork height sensor"
+          }
+        ]
+      }
+    }
+  ]
+}

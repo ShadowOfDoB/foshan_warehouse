@@ -1,0 +1,134 @@
+---
+model:
+
+- name: wheel_distance_fixed_joint
+  parent: base_link
+  child: kinematic_center
+  type: fixed
+
+- name: gantry_pitch_joint
+  parent: base_link
+  child: gantry_pitch
+  type: continuous
+  axis:
+    xyz: [0.0, 1.0, 0.0]  
+  origin:
+    xyz: [-0.08, 0.0, 0.15]    # need CAD data  
+    # rpy: [0.0 , -0.0137857738882 ,0.0 ]
+- name: fork_height_base_joint
+  parent: gantry_pitch
+  child: fork_height_base
+  type: fixed
+  origin:
+    xyz: [0.0, 0.0, -0.15]
+
+- name: fork_height_joint
+  parent: fork_height_base
+  child: fork_height
+  type: prismatic
+  axis:
+    xyz: [0.0, 0.0, 1.0]
+  origin:
+    xyz: [0.0, 0.0, 0.0]
+
+- name: fork_real_joint
+  parent: fork_height
+  child: fork_real
+  type: fixed
+  origin:
+    xyz: [-0.36, 0.0, 0.046]
+
+- name: fork_real_move_joint
+  parent: fork_real
+  child: fork_real_move
+  type: prismatic
+  axis:
+    xyz: [0.0, 1.0, 0.0]
+  origin:
+    xyz: [0.0, 0.0, 0.0]
+ 
+- name: fork_bottom_joint
+  parent: fork_real_move
+  child: fork_bottom
+  type: fixed
+  origin:
+    xyz: [0.0, 0.0, -0.046] #fork lower surface,and fork stick to the ground
+
+- name: fork_middle_joint
+  parent: fork_real_move
+  child: fork_middle
+  type: fixed
+  origin:
+    xyz: [-1.2, 0.0, 0.0]
+
+- name: fork_tip_joint
+  parent: fork_middle
+  child: fork_tip
+  type: prismatic
+  axis:
+    xyz: [-1.0, 0.0, 0.0]
+
+- name: fork_left_tip_joint
+  parent: fork_tip
+  child: fork_left_tip
+  type: prismatic
+  axis:
+    xyz: [0.0, 1.0, 0.0]
+
+- name: fork_right_tip_joint
+  parent: fork_tip
+  child: fork_right_tip
+  type: prismatic
+  axis:
+    xyz: [0.0, 1.0, 0.0]
+
+- name: camera_base_joint
+  parent: fork_real
+  child: camera_base
+  type: fixed
+  origin:
+    rpy: [0.0, 0.0, 3.141592653589793]
+    xyz: [0.0, 0.0, 0.7]
+
+- name: right_camera_joint
+  parent: fork_real
+  child: right_camera_base
+  type: fixed
+  origin:
+    rpy: [0.0, 0.0, -1.5707963267948965]
+    xyz: [0.0, -0.685, 0.45]
+
+- name: left_camera_joint
+  parent: fork_real
+  child: left_camera_base
+  type: fixed
+  origin:
+    rpy: [0.0, 0.0, 1.5707963267948965]
+    xyz: [0.0, 0.685, 0.45]
+
+- name: camera_calib_point_joint
+  parent: fork_real
+  child: camera_calib_point
+  type: fixed
+
+model_meta:
+  type: CF1.3
+  drive_type: toyota-steering
+  embedded_drive_type: toyota-steering
+
+model_calib:
+  steering_wheel_radius: 0.2032
+  wheel_distance_base: 1.0
+  wheel_distance_up: 1.0
+  steering_angle_bias: 0.0
+  in_place_rotation_steering_angle: -1.570796327
+  wheel_distance_lat_offset: 0.0
+  steering_wheel_offset: 0.0
+  wheelbase: 1.475
+  drive_wheel_track: 0.90
+  left_steering_wheel_valid: true
+  right_steering_wheel_valid: false
+  left_steering_wheel_shift: 0.0
+  right_steering_wheel_shift: -0.685
+  left_drive_wheel_radius: 0.2286
+  right_drive_wheel_radius: 0.2286

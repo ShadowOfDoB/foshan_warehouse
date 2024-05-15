@@ -1,0 +1,35 @@
+scan_match_method: 'PLICP'
+
+key_frame_distance: 2.0
+local_frame_num: 20
+max_correction_distance: 0.4
+max_correction_theta_degree: 5.0
+
+ICP:
+  max_corr_dist: 1.2
+  trans_eps: 0.01
+  euc_fitness_eps: 0.36
+  max_iter: 30
+NDT:
+  res: 0.5
+  step_size: 0.05
+  trans_eps: 0.01
+  max_iter: 30
+PLICP:
+  max_iterations: 10
+  max_correspondence_dist: 0.2
+  use_point_to_line_distance: 0
+
+
+voxel_filter:
+  local_map:
+    leaf_size: [0.15, 0.15, 0.15]
+  cloud_frame:
+    leaf_size: [0.15, 0.15, 0.15]
+  frame:
+    leaf_size: [1.3, 1.3, 1.3]
+  display:
+    leaf_size: [0.5, 0.5, 0.5]
+
+local_map_box_filter_size: [-50.0, 50.0, -50.0, 50.0, -10.0, 10.0]
+frame_box_filter_size: [-12.0, 12.0, -12.0, 12.0, -10.0, 10.0]

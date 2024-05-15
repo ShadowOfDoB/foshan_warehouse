@@ -1,0 +1,11 @@
+boxes:
+
+  - name: body_box
+    frame_id: base_link
+    center: [0.67, 0, 1.2]
+    size: [2.28, 1.54, 2.5]
+
+  - name: fork_box
+    frame_id: base_link
+    center: [-1, 0, 0.03]
+    size: [1.27, 0.95, 0.08]

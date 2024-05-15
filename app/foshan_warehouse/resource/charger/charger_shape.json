@@ -1,0 +1,13 @@
+{
+  "Polygon" : {
+      "line1" : {
+        "length" : 0.17,
+        "angle_with_last_line": -30
+      },
+      "line2" : {
+        "length" : 0.17,
+        "angle_with_last_line": 60
+      }
+    }
+}
+

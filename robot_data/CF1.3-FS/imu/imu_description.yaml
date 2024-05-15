@@ -1,0 +1,8 @@
+---
+imu:
+
+- name: imu_link
+  link_frame: base_link
+  link_pose:
+    xyz: [0.0, 0.0, 0.0]
+    rpy: [0.0, 0.0, -1.5707]

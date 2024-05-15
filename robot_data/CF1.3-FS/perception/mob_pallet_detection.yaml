@@ -1,0 +1,14 @@
+detection_type: "IkeaPallet"
+depth_image_topic: "/back_camera/depth/image_raw"
+camera_info_topic: "/back_camera/depth/camera_info"
+depth_cloud_topic: "/back_camera/depth/points"
+yolo_result_topic: "/mob_yolo_detection/yolo_result"
+
+pose_result_topic: "/mob_pallet_tracking/pose_result"
+pose_rough_topic: "/mob_pallet_tracking/pose_result_rough"
+
+detection_frame_id: "fork_real"
+use_lidar: false
+score_threshold: 0.5
+rough_detect: true
+

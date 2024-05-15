@@ -1,0 +1,21 @@
+input_source:
+
+- name: navigation_lidar
+  type: LaserScan
+  topic_name: navigation_lidar_scan
+
+- name: left_safety_lidar
+  type: LaserScan
+  topic_name: left_safety_lidar_scan
+
+- name: right_safety_lidar
+  type: LaserScan
+  topic_name: right_safety_lidar_scan
+
+- name: back_safety_lidar_3D
+  type: PointCloud
+  topic_name: /livox/lidar
+
+voxel_size: 0.02
+ground_cut_off_height: 0.05
+process_rate: 10
