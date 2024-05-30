@@ -12,7 +12,7 @@
 # - pallet.width
 
 # 车辆做VD的距离（相机到托盘前边沿的距离：单位是米）
-dist_vd_camera_to_pallet_front = 1.7
+dist_vd_camera_to_pallet_front = 2.0
 
 # 充满电时，继续充电一段时间，以校准电量（秒）
 battery_calibration_duration = 360
@@ -45,10 +45,9 @@ right_angle_turn_duration = 5
 
 [[pallet]]
 # 托盘（载货）的'长度'
-length = 1.2
+length = 2.6
 # 托盘（载货）的'宽度' 叉车从宽度方向入叉
-
-width = 0.8
+width = 1.2
 
 [[pallet]]
 length = 2.2
